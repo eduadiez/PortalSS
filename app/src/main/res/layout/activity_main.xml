@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".MainActivity"
+                                             tools:layout_editor_absoluteY="81dp">
+
+    <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Start PSS"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"/>
+
+    <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Topic"
+            android:ems="10"
+            tools:layout_editor_absoluteY="0dp"
+            android:id="@+id/editTextTopic"
+            app:layout_constraintStart_toEndOf="@+id/startButton"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"/>
+
+    <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Nickname"
+            android:ems="10"
+            tools:layout_editor_absoluteY="0dp"
+
+            android:id="@+id/editTextNick"
+            app:layout_constraintStart_toEndOf="@+id/editTextTopic"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"/>
+
+
+    <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="50dp"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/startButton"
+            app:layout_constraintBottom_toTopOf="@+id/messageText">
+
+        <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="bottom"
+                android:scrollbars="vertical|horizontal"
+                android:textSize="12sp" />
+    </ScrollView>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/messageText"
+            android:layout_width="268dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+                android:id="@+id/textInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hint"
+                android:minLines="1"
+                android:maxLines="1"
+                />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Send"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/messageText" />
+
+
+
+    <!--
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="bottom"
+        android:text="Send"
+        app:layout_constraintStart_toEndOf="@+id/messageText"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
+        -->
+
+</android.support.constraint.ConstraintLayout>
