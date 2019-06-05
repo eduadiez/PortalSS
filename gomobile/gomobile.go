@@ -15,6 +15,7 @@ var gTopic *string
 var gEnc *string
 var gKey *string
 var gAddr *string
+var gNick *string
 
 type Message struct {
 	Type int    `json:"type"`
@@ -36,9 +37,13 @@ func RegisterJavaCallback(c JavaCallback) {
 
 func SendMessage(text string) string {
 
+	if gSS = nil {
+		return "Not connected"
+	}
+
 	var jmsg Message
 	jmsg.Type = 0
-	jmsg.Nick = gTopic
+	jmsg.Nick = *gNick
 
 	jmsg.Data = text
 	msg, err := json.Marshal(jmsg)
@@ -68,7 +73,7 @@ func start(_datadir string, _topic string, _nick string) {
 	key := flag.String("key", "vocdoni", "encryption key (sym or asym)")
 	addr := flag.String("address", "", "pss address to send messages")
 	light := flag.Bool("light", true, "use light mode (less consumption)")
-	logLevel := flag.String("log", "debug", "log level (info, warn, crit)")
+	logLevel := flag.String("log", "info", "log level (info, warn, crit)")
 	flag.Parse()
 
 	sn := new(swarm.SimpleSwarm)
@@ -78,6 +83,7 @@ func start(_datadir string, _topic string, _nick string) {
 	gEnc = kind
 	gKey = key
 	gAddr = addr
+	gNick = nick
 	sn.SetDatadir(*dir)
 
 	err := sn.InitPSS()
