@@ -37,10 +37,10 @@ func RegisterJavaCallback(c JavaCallback) {
 
 func SendMessage(text string) string {
 
-	if gSS = nil {
+	if gSS == nil {
 		return "Not connected"
 	}
-
+	cd
 	var jmsg Message
 	jmsg.Type = 0
 	jmsg.Nick = *gNick
