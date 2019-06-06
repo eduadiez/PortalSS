@@ -9,15 +9,14 @@ This PoC use a modified version of swarm developed by vocdoni: [SimpleSwarm](htt
 
 # Compile gomobile library
 ```
-$ go get golang.org/x/mobile/cmd/gomobile
+$ go get -v golang.org/x/mobile/cmd/gomobile
 $ gomobile init
-$ go get github.com/ethereum/go-ethereum/log && go get github.com/spf13/pflag && go get github.com/vocdoni/go-dvote/swarm
-$ mkdir -p $GOPATH/src/portalss
-$ cp gomobile/gomobile.go $GOPATH/src/portalss
+$ git clone https://github.com/eduadiez/PortalSS && cd PortalSS
 $ gomobile bind -o gomobile/gomobile.aar -target=android portalss
 ```
 
 # Run a desktop client
 ```
-$ go run gomobile/pssChat.go --datadir ./pssChat --light false --nick "DesktopClient" --topic "topic"
+$ git clone https://github.com/vocdoni/go-dvote && go-dvote
+$ GOPATH="" go run ./cmd/pssChat/psschat.go --datadir ./pssChat --light false --nick "DesktopClient" --topic "topic"
 ```
